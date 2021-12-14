@@ -122,7 +122,7 @@ fn enc_part(mut val: i32, slice: &mut [u8]) {
 fn gen_pair(slice: &mut [u8]) {
     slice
         .iter_mut()
-        .for_each(|x| *x = KEY_CHARS[thread_rng().gen_range(0, KEYS_SIZE) as usize])
+        .for_each(|x| *x = KEY_CHARS[thread_rng().gen_range(0..KEYS_SIZE) as usize])
 }
 
 fn verify_checksum<T: AsRef<[u8]>>(key: T) -> bool {
@@ -219,9 +219,9 @@ fn days_since_1900(year: i32, month: u32, day: u32) -> i32 {
 
 fn generate_key(edition: KeyEdition, license_count: i32, purchase_val: i32, expire_license: i32, expire_maintance: i32) -> String {
     let mut rng = thread_rng();
-    let unk1 = rng.gen_range(100, 989);
-    let unk2 = rng.gen_range(0, 100) & 0xFFFF;
-    let unk3 = rng.gen_range(0, 100) & 0xFFFF;
+    let unk1 = rng.gen_range(100..989);
+    let unk2 = rng.gen_range(0..100) & 0xFFFF;
+    let unk3 = rng.gen_range(0..100) & 0xFFFF;
 
     let mut enc_key: [u8; 25] = [0; 25];
     gen_pair(&mut enc_key[22..24]);
