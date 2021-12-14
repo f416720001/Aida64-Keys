@@ -1,7 +1,7 @@
 ![Windows/Ubuntu/MacOS](https://github.com/LeagueRaINi/Aida64-Keygen/workflows/Windows/Ubuntu/MacOS/badge.svg)
 
 # Using Rust playground, and paste src/main.rs code
-![Playground]https://play.rust-lang.org/
+[Playground]https://play.rust-lang.org/
 
 # **This is for educational purposes only!**
 - this project contains methods for generating and verifying aida64 keys
